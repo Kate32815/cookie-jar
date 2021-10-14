@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cookie Jar</title>
+    <script src="popup.js"></script>
+    <script src="popup.js"></script>
+    <style>
+
+        body {
+            margin: 1rem;
+            min-width: 250px;
+            font-family: Avenir;
+            text-align: center;
+        }
+
+        button {
+            font-family: Avenir;
+            margin: 0.25rem 0;
+            padding: 0.75rem;
+            border-radius: 2rem;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        #see-cookies {
+            background-color: teal;
+        }
+
+        #hide-cookies {
+            background-color: maroon;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Cookie Jar</h1>
+    <div>
+        <span id="cookies_count">0</span>
+        <span>total cookies in your browser</span>
+    </div>
+    <div>
+        <span id="domains_count">0</span>
+        <span>domains storing your cookies</span>
+    </div>
+    <button id="see-cookies">Visualize cookie count</button>
+    <button id="hide-cookies">Clear visualization</button>
+    <div>
+        <a href="">What are cookies?</a>
+    </div>
+    <div>
+        <a href="">Manage Cookies</a>
+    </div>
+</body>
+
+</html>
