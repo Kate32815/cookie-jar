@@ -10,12 +10,26 @@
     "action": {
         "default_popup": "popup.html"
     },
-    "host_permissions": ["http://*/*", "https://*/*"],
-    "permissions": [ "cookies", "tabs", "activeTab", "scripting"],
-    "web_accessible_resources": [{
-        "resources": [ "icons/cookie_96.png" ],
-        "matches": ["http://*/*", "https://*/*"]
-    }
-        
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "permissions": [
+        "cookies",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icons/cookie_96.png",
+                "icons/cookie_monster.png"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
     ]
 }

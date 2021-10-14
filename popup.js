@@ -33,6 +33,20 @@ function spawnCookies(n) {
             document.body.appendChild(this.cookie_img);
         }, i * delay);
     }
+
+    /* add a cookie monster */
+    var cookie_monster = document.createElement("img");
+    cookie_monster.setAttribute("src", chrome.runtime.getURL("icons/cookie_monster.png"));
+    cookie_monster.style.position = "absolute";
+    cookie_monster.style.width = "40%";
+    cookie_monster.style.bottom = 0;
+    cookie_monster.style.left = "35%";
+    cookie_monster.style.zIndex = 1000;
+    cookie_monster.className = "spawned_cookie";
+
+    setTimeout(function timer() {
+        document.body.appendChild(cookie_monster);
+    }, n * delay);
 }
 
 function clearSpawnedCookies() {
@@ -88,10 +102,16 @@ async function doStuffToDOM(func_name, args = null) {
 }
 
 function visualizeCookies() {
-    msg = document.createElement('p');
-    msg.setAttribute('id', 'cookie_vis_msg')
-    msg.innerHTML = "Spawning " + count + " cookies!"
-    document.body.appendChild(msg);
+    try {
+        msg = document.getElementById('cookie_vis_msg');
+        msg.innerHTML = "Spawning " + count + " cookies!"
+    }
+    catch {
+        msg = document.createElement('p');
+        msg.setAttribute('id', 'cookie_vis_msg')
+        msg.innerHTML = "Spawning " + count + " cookies!"
+        document.body.appendChild(msg);
+    }
 
     /* Spawn cookies on page */
     doStuffToDOM(spawnCookies, [count]);
@@ -112,6 +132,11 @@ function hideCookieVisualization() {
 document.addEventListener('DOMContentLoaded', function () {
     /* count the cookies on the page */
     loadCookies();
+
+    /* manage cookies */
+    document.getElementById('manage_cookies').addEventListener('click', function () {
+        chrome.tabs.update({ url: 'chrome://settings/cookies' });
+    });
 
     /* button interactions */
     let cookieButton = document.getElementById('see-cookies');

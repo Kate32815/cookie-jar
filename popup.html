@@ -6,12 +6,12 @@
     <script src="popup.js"></script>
     <script src="popup.js"></script>
     <style>
-
         body {
-            margin: 1rem;
+            margin: 1.5rem 1rem;
             min-width: 250px;
             font-family: Avenir;
             text-align: center;
+            background-color: rgb(253, 244, 227);
         }
 
         button {
@@ -24,6 +24,36 @@
             cursor: pointer;
         }
 
+        .data_display {
+            margin-bottom: 1rem;
+        }
+
+        .data_description {
+            font-size: 14px;
+        }
+
+        .link_container {
+            margin-top: 0.5rem;
+        }
+
+        .page_link {
+            color: teal;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+
+        .page_link:hover {
+            cursor: pointer;
+            color: rgb(2, 155, 155);
+        }
+
+        #cookies_count,
+        #domains_count {
+            font-weight: 500;
+            font-size: x-large;
+            color: rgb(133, 86, 46);
+        }
+
         #see-cookies {
             background-color: teal;
         }
@@ -32,27 +62,40 @@
             background-color: maroon;
         }
 
+        #cookie_jar_title {
+            color: rgb(63, 35, 13);
+        }
+
+        #cookie_vis_msg {
+            color: rgb(133, 86, 46);
+        }
     </style>
 </head>
 
 <body>
-    <h1>Cookie Jar</h1>
-    <div>
-        <span id="cookies_count">0</span>
-        <span>total cookies in your browser</span>
-    </div>
-    <div>
-        <span id="domains_count">0</span>
-        <span>domains storing your cookies</span>
-    </div>
-    <button id="see-cookies">Visualize cookie count</button>
-    <button id="hide-cookies">Clear visualization</button>
-    <div>
-        <a href="">What are cookies?</a>
-    </div>
-    <div>
-        <a href="">Manage Cookies</a>
-    </div>
+    <h1 id="cookie_jar_title">Cookie Jar</h1>
+    <di class="data_block">
+        <div class="data_display">
+            <div id="cookies_count">0</div>
+            <div class="data_description">total cookies in your browser</div>
+        </div>
+        <div class="data_display">
+            <div id="domains_count">0</div>
+            <div class="data_description">domains storing your cookies</div>
+        </div>
+        </div>
+
+        <button id="see-cookies">Visualize cookie count</button>
+        <button id="hide-cookies">Clear visualization</button>
+        <div class="link_container">
+            <a class="page_link"
+                href="https://www.vox.com/recode/2019/12/10/18656519/what-are-cookies-website-tracking-gdpr-privacy"
+                title="Will open a new tab" target="_blank">What are cookies?</a>
+        </div>
+        <div class="link_container">
+            <a id="manage_cookies" class="page_link" title="Will take you to Chrome cookie settings"
+                target="_blank">Manage cookies</a>
+        </div>
 </body>
 
 </html>
